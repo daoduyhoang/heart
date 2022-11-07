@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
   <head>
-    <title>New Document</title>
+    <title>I Love You</title>
     <meta name="Generator" content="EditPlus" />
     <meta name="Author" content="" />
     <meta name="Keywords" content="" />
@@ -9,32 +9,67 @@
     <style>
       html,
       body {
-        height: 100%;
+        overflow: hidden;
         padding: 0;
         margin: 0;
         background: #000;
       }
+
       canvas {
         position: absolute;
         width: 100%;
         height: 100%;
       }
+
+      canvas {
+        /* top: 50%;
+            left: 50%; */
+        z-index: 1;
+        display: block;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        animation: heart 1.5s ease infinite;
+      }
+
+      @keyframes heart {
+        0% {
+          transform: scale(1);
+        }
+        30% {
+          transform: scale(0.8);
+        }
+        /* 60% {
+                transform: scale(1.2);
+            } */
+        100% {
+          transform: scale(1);
+        }
+      }
     </style>
   </head>
 
   <body>
-    <canvas id="pinkboard"></canvas>
+    <canvas id="pinkboard">
+      <canvas id="pinkboard"> </canvas>
+    </canvas>
     <script>
       /*
        * Settings
        */
       var settings = {
+        // particles: {
+        //     length: 1500, // maximum amount of particles
+        //     duration: 2, // particle duration in sec
+        //     velocity: 135, // particle velocity in pixels/sec
+        //     effect: -0.35, // play with this for a nice effect
+        //     size: 30, // particle size in pixels
+        // },
         particles: {
-          length: 500, // maximum amount of particles
-          duration: 2, // particle duration in sec
-          velocity: 100, // particle velocity in pixels/sec
-          effect: -0.75, // play with this for a nice effect
-          size: 30, // particle size in pixels
+          length: 500,
+          duration: 2,
+          velocity: 100,
+          effect: -0.75,
+          size: 30,
         },
       };
 
@@ -233,11 +268,11 @@
           function to(t) {
             var point = pointOnHeart(t);
             point.x =
-              settings.particles.size / 2 +
-              (point.x * settings.particles.size) / 350;
+              settings.particles.size / 3 +
+              (point.x * settings.particles.size) / 550;
             point.y =
-              settings.particles.size / 2 -
-              (point.y * settings.particles.size) / 350;
+              settings.particles.size / 3 -
+              (point.y * settings.particles.size) / 550;
             return point;
           }
           // create the path
